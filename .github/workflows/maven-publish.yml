@@ -24,6 +24,9 @@ jobs:
         with:
           java-version: 1.8
           
+      - name: grant folder perms
+        run: chmod +x C:\Users\runneradmin\.m2
+          
       - name: clean Maven
         run: mvn clean
         
