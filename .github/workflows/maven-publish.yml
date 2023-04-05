@@ -24,16 +24,16 @@ jobs:
         with:
           java-version: 1.8
           
-      - name: Build with Maven
+      - name: clean Maven
         run: mvn clean
         
-      - name: compile
-        run: mvn compile
-        
-      - name: Build with Maven
+      - name: install maven
         run: mvn install 
         
-      - name: Build with Maven
+      - name: compile maven
+        run: mvn compile
+        
+      - name: jar
         run: mvn package
         
         
