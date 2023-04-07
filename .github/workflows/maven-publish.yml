@@ -44,5 +44,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Packages
-          path: ./Client/target/*.jar, ./Backend/target/*.jar, ./Common/target/*.jar, ./DataAnalyser/target/*.jar
+          path: Client/target/*.jar, Backend/target/*.jar, Common/target/*.jar, DataAnalyser/target/*.jar
                   
