@@ -40,14 +40,27 @@ jobs:
       - name: List files
         run: ls
         
-      - name: Upload a Build Artifact
+      - name: Upload the Client jar
         uses: actions/upload-artifact@v2
         with:
           name: Packages
-          path: 
-                -./Client/target/*.jar
-                -./Backend/target/*.jar
-                -./Common/target/*.jar
-                -./DataAnalyser/target/*.jar
-                
+          path: ./Client/target/*.jar
           
+      - name: Upload the Backend jar
+        uses: actions/upload-artifact@v2
+        with:
+          name: Packages
+          path: ./Backend/target/*.jar
+          
+      - name: Upload the Commons jar
+        uses: actions/upload-artifact@v2
+        with:
+          name: Packages
+          path: ./Common/target/*.jar
+          
+      - name: Upload the DataAnalyser jar
+        uses: actions/upload-artifact@v2
+        with:
+          name: Packages
+          path: ./DataAnalyser/target/*.jar
+            
