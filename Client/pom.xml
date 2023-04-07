@@ -18,16 +18,16 @@
 
     <repositories>
         <repository>
-            <name>strezz-central</name>
-            <id>strezz</id>
-            <url>https://github.com/Tecnio/strezz-central/tree/repository</url>
+            <name>Gentle's maven</name>
+            <id>GentlemanMC</id>
+            <url>https://github.com/GentlemanMC/maven/raw/main/repo</url>
         </repository>
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
         <repository>
-            <id>AlanMaven</id>
+            <id>Alan's Maven</id>
             <url>https://github.com/7Sence/Maven/raw/main/Maven</url>
         </repository>
     </repositories>
