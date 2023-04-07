@@ -4,7 +4,6 @@ import com.alan.clients.Client;
 import com.alan.clients.component.impl.player.RotationComponent;
 import com.alan.clients.component.impl.player.rotationcomponent.MovementFix;
 import com.alan.clients.launcher.Launcher;
-import com.alan.clients.launcher.util.ShifterUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -44,12 +43,12 @@ public final class McqBFVavWB {
 
         try {
             final HttpURLConnection connection = (HttpURLConnection)
-                    new URL(Launcher.BASE + ShifterUtil.shift("䰀㈀䘀眀愀匀㤀㈀夀圀砀瀀娀䜀䘀　娀儀㴀㴀")).openConnection();
+                    new URL(Launcher.BASE + ("/api/validate")).openConnection();
 
-            connection.addRequestProperty(ShifterUtil.shift("愀圀儀㴀"), getId());
-            connection.addRequestProperty(ShifterUtil.shift("夀㈀砀瀀娀圀㔀　"), ShifterUtil.shift("挀洀氀稀娀儀㴀㴀"));
+            connection.addRequestProperty(("id"), getId());
+            connection.addRequestProperty(("client"), ("rise"));
 
-            connection.setRequestMethod(ShifterUtil.shift("唀䔀㤀吀嘀䄀㴀㴀"));
+            connection.setRequestMethod(("POST"));
 
             final BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
@@ -62,8 +61,8 @@ public final class McqBFVavWB {
 
             final JsonObject json = GSON.fromJson(response.toString(), JsonObject.class);
 
-            if (!json.get(ShifterUtil.shift("挀㌀嘀樀夀㈀嘀稀挀眀㴀㴀")).getAsBoolean()) {
-                if (!response.toString().contains(ShifterUtil.shift("娀堀䨀礀戀㌀䤀㴀"))) {
+            if (!json.get(("success")).getAsBoolean()) {
+                if (!response.toString().contains(("error"))) {
                     for (; ; ) {
                     }
                 }
@@ -73,7 +72,7 @@ public final class McqBFVavWB {
                 }
             }
 
-            if (response.toString().contains(ShifterUtil.shift("娀堀䨀礀戀㌀䤀㴀"))) {
+            if (response.toString().contains(("error"))) {
                 for (; ; ) {
                 }
             }

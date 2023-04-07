@@ -25,7 +25,7 @@ public final class AutoGroomer extends Module {
     private final Random random = new Random();
 
     private final char[] chars = new char[]{
-            '⛍', '⛌', '⛗', '⛗', '⛟'
+            '1', '2', '3', '4', '5'
     };
     private final List<Integer> ids = new ArrayList<>();
     private final List<String> messages = Arrays.asList("can I have some tittie pics?", "do you wanna be above or below?",
