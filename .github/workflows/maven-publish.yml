@@ -56,11 +56,11 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Packages
-          path: ./Common/target/*jar-with-dependencies.jar
+          path: ./Common/target/*.jar
           
       - name: Upload the DataAnalyser jar
         uses: actions/upload-artifact@v2
         with:
           name: Packages
-          path: ./DataAnalyser/target/*jar-with-dependencies.jar
+          path: ./DataAnalyser/target/*.jar
             
