@@ -123,12 +123,7 @@
             <artifactId>vecmath</artifactId>
             <version>1.5.2</version>
         </dependency>
-        <dependency>
-            <groupId>net.minecraft</groupId>
-            <artifactId>minecraft</artifactId>
-            <version>1.8.8</version>
-        </dependency>
-        <dependency>
+            <dependency>
             <groupId>oshi-project</groupId>
             <artifactId>oshi-core</artifactId>
             <version>1.1</version>
@@ -291,9 +286,9 @@
         </dependency>
         <dependency>
             <groupId>com.riseclient</groupId>
-            <artifactId>Backend</artifactId>
+            <artifactId>Common</artifactId>
             <version>6.0</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
