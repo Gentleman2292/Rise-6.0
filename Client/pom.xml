@@ -18,8 +18,8 @@
 
     <repositories>
         <repository>
-            <name>Gentle's maven</name>
-            <id>GentlemanMC</id>
+            <name>GentlesMaven</name>
+            <id>GentlemanMaven</id>
             <url>https://github.com/GentlemanMC/maven/raw/main/repo</url>
         </repository>
         <repository>
@@ -27,8 +27,12 @@
             <url>https://jitpack.io</url>
         </repository>
         <repository>
-            <id>Alan's Maven</id>
+            <id>AlanMaven</id>
             <url>https://github.com/7Sence/Maven/raw/main/Maven</url>
+        </repository>
+        <repository>
+            <id>viaversion-repo</id>
+            <url>https://repo.viaversion.com</url>
         </repository>
     </repositories>
 
@@ -42,11 +46,10 @@
         </dependency>
 
         <dependency>
-            <groupId>ViaBackwards</groupId>
+            <groupId>dev.rise</groupId>
             <artifactId>ViaBackwards</artifactId>
             <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/ViaBackwards-4.4.1.jar</systemPath>
+            <scope>compile</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.profesorfalken/WMI4Java -->
@@ -63,35 +66,31 @@
         </dependency>
 
         <dependency>
-            <groupId>ViaRewind</groupId>
+            <groupId>dev.rise</groupId>
             <artifactId>ViaRewind</artifactId>
             <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/ViaRewind-2.0.3-SNAPSHOT.jar</systemPath>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>ViaSnakeYaml</groupId>
+            <groupId>dev.rise</groupId>
             <artifactId>ViaSnakeYaml</artifactId>
             <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/ViaSnakeYaml-1.30.jar</systemPath>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>ViaVersion</groupId>
-            <artifactId>ViaVersion</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/ViaVersion-4.4.1.jar</systemPath>
+            <groupId>com.viaversion</groupId>
+            <artifactId>viaversion</artifactId>
+            <version>4.4.2</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
-            <groupId>discord-rpc</groupId>
+            <groupId>com.github.Vatuu</groupId>
             <artifactId>discord-rpc</artifactId>
             <version>1.6.2</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/discord-rpc.jar</systemPath>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>Annotations</groupId>
@@ -122,11 +121,6 @@
             <groupId>javax.vecmath</groupId>
             <artifactId>vecmath</artifactId>
             <version>1.5.2</version>
-        </dependency>
-        <dependency>
-            <groupId>net.minecraft</groupId>
-            <artifactId>minecraft</artifactId>
-            <version>1.8.8</version>
         </dependency>
         <dependency>
             <groupId>oshi-project</groupId>
@@ -291,9 +285,9 @@
         </dependency>
         <dependency>
             <groupId>com.riseclient</groupId>
-            <artifactId>Backend</artifactId>
+            <artifactId>Common</artifactId>
             <version>6.0</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
