@@ -200,7 +200,7 @@ public enum Client {
         // Init Managers
         this.targetManager.init();
         this.dataManager.init();
-        this.McqAFVeaWB.init();
+        //this.McqAFVeaWB.init(); //You fucking DONUT
         this.moduleManager.init();
         this.securityManager.init();
         this.botManager.init();
