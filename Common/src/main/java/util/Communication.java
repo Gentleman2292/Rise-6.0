@@ -58,7 +58,6 @@ public final class Communication {
     }
 
     public void write(final Packet<?> packet) {
-        /*
         try {
             final ByteArrayOutputStream bos = new ByteArrayOutputStream();
             final ObjectOutputStream out = new ObjectOutputStream(bos);
@@ -75,8 +74,6 @@ public final class Communication {
         } catch (final Exception e) {
             e.printStackTrace();
         }
-
-         */
     }
 
     public Packet<?> read() {
