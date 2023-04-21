@@ -41,7 +41,7 @@ public final class NetworkManager implements InstanceAccess {
     public void init(String username) {
         this.username = username;
 //        this.connect("localhost", 18934);
-        this.connect("144.172.67.17", 18934);
+        //this.connect("144.172.67.17", 18934);
     }
 
     private void connect(String ip, int port) {

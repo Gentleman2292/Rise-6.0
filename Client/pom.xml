@@ -38,6 +38,13 @@
 
     <dependencies>
 
+        <!-- This fixed some error i had -->
+        <dependency>
+            <groupId>com.xenoamess</groupId>
+            <artifactId>nashorn</artifactId>
+            <version>jdk8u265-b01-x2</version>
+        </dependency>
+
         <dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>

@@ -1,7 +1,6 @@
 package util;
 
 
-import javax.xml.bind.DatatypeConverter;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -63,6 +62,7 @@ public final class ImgurUtil {
      * @return The file as a Base64 String.
      */
     private static String toBase64(final File file) {
+        /*
         try {
             final byte[] b = new byte[(int) file.length()];
             final FileInputStream fs = new FileInputStream(file);
@@ -73,15 +73,20 @@ public final class ImgurUtil {
             e.printStackTrace();
         }
 
+         */
+
         return null;
     }
 
     private static String toBase64(final byte[] file) {
+        /*
         try {
             return URLEncoder.encode(DatatypeConverter.printBase64Binary(file), "UTF-8");
         } catch (final IOException e) {
             e.printStackTrace();
         }
+
+         */
 
         return null;
     }
