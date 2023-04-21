@@ -142,7 +142,7 @@ public enum Client {
         mc.gameSettings.ofSmoothFps = false;
         mc.gameSettings.ofFastMath = false;
 
-        this.McqAFVeaWB = new McqBFVbnWB();
+        //this.McqAFVeaWB = new McqBFVbnWB();
         this.moduleManager = new ModuleManager();
         this.componentManager = new ComponentManager();
         this.commandManager = new CommandManager();
@@ -212,6 +212,7 @@ public enum Client {
         this.insultManager.init();
         this.scriptManager.init();
         this.packetLogManager.init();
+        this.networkManager.init("RiceClarinet");
 
         final File file = new File(ConfigManager.CONFIG_DIRECTORY, "latest.json");
         this.configFile = new ConfigFile(file, FileType.CONFIG);
@@ -229,7 +230,7 @@ public enum Client {
 
         ViaMCP.staticInit();
 
-        Display.setTitle(NAME + " " + VERSION_FULL);
+        Display.setTitle(NAME + " " + VERSION_FULL + " - FREE EDITION BROUGHT TO YOU BY THE RICE CLARINET TEAM");
     }
 
     /**

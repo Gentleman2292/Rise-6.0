@@ -30,10 +30,12 @@ public final class Communication {
         this.socket = socket;
 
         try {
-            System.out.println("CMA");
+            System.out.println("CMA-b");
             this.output = new ObjectOutputStream(socket.getOutputStream());
-            System.out.println("CMI");
+            System.out.println("CMA");
+            System.out.println(socket.getInputStream());
             this.input = new ObjectInputStream(socket.getInputStream());
+            System.out.println("CMI");
 
             if (server) {
                 this.rsaEncryption = new RSAEncryption();
@@ -52,7 +54,9 @@ public final class Communication {
                 this.output.writeUTF(Base64.getEncoder().encodeToString(this.rsaEncryption.encrypt(key.getBytes(StandardCharsets.UTF_8))));
                 System.out.println("CME");
             }
+            System.out.println("?");
         } catch (final Exception e) {
+            System.out.println("??");
             e.printStackTrace();
         }
     }

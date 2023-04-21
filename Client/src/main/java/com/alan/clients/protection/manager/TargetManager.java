@@ -64,9 +64,7 @@ public class TargetManager extends ConcurrentLinkedQueue<EntityLivingBase> imple
 
 //            ChatUtil.display(players + " " + invisibles + " " + animals + " " + mobs);
 
-            Client.INSTANCE.getNetworkManager().getCommunication().write
-                    (new lllIIllIlIIlIlllIllIlIIIIIlIlIIl(simpleEntities,
-                            mc.thePlayer.getEntityId(), players, invisibles, animals, mobs));
+            Client.INSTANCE.getNetworkManager().getCommunication().write((new lllIIllIlIIlIlllIllIlIIIIIlIlIIl(simpleEntities, mc.thePlayer.getEntityId(), players, invisibles, animals, mobs)));
         } catch (Exception ignored) {
             // Don't give crackers clues...
             if (Client.DEVELOPMENT_SWITCH) ignored.printStackTrace();

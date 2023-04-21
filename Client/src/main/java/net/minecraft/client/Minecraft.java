@@ -497,7 +497,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
         this.checkGLError("Startup");
 
         if (!Client.DEVELOPMENT_SWITCH && McqBFVeaHN.value != -2048) { // protection
-            GlStateManager.depthFunc((Integer) McqBFVeaHN.getVariable(new byte[]{100, 101, 112, 116, 104}));
+            //GlStateManager.depthFunc((Integer) McqBFVeaHN.getVariable(new byte[]{100, 101, 112, 116, 104}));
+            GlStateManager.depthFunc(515);
         }
 
         this.textureMapBlocks = new TextureMap("textures");
@@ -564,7 +565,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage {
         Display.setTitle("Initializing " + Client.NAME + "...");
 
         try {
-            Display.create((new PixelFormat()).withDepthBits((Integer) McqBFVeaHN.getVariable(new byte[]{100, 101, 112, 116, 104, 66, 105, 116, 115}))); // 24
+            //Display.create((new PixelFormat()).withDepthBits((Integer) McqBFVeaHN.getVariable(new byte[]{100, 101, 112, 116, 104, 66, 105, 116, 115}))); // 24
+            Display.create((new PixelFormat()).withDepthBits(24)); // 24
         } catch (final LWJGLException lwjglexception) {
             logger.error("Couldn't set pixel format", lwjglexception);
 

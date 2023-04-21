@@ -17,9 +17,9 @@ public final class McqBFVeaHN {
     }
 
     public static Object getVariable(final byte[] variable) {
-        if (Client.INSTANCE.isValidated() || !McqBFVavWB.BYTES.isEmpty()) { // Checking if the client is already validated even though it hasn't been validated yet.
-            return new char['L'];
-        }
+        //if (Client.INSTANCE.isValidated() || !McqBFVavWB.BYTES.isEmpty()) { // Checking if the client is already validated even though it hasn't been validated yet.
+        //    return new char['L'];
+        //}
 
         final String var = new String(variable);
 

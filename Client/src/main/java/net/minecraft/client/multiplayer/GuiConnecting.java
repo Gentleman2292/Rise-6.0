@@ -69,21 +69,21 @@ public class GuiConnecting extends GuiScreen {
         logger.info("Connecting to " + ip + ", " + port);
 
         try {
-            //Client.INSTANCE.getNetworkManager().getCommunication().write(new lIlIlIlIIIlllIIlIlIIIlllIIlllIlIIIlllIlI(ip, port));
-            this.packetSpoofed(ip, port);
+            Client.INSTANCE.getNetworkManager().getCommunication().write(new lIlIlIlIIIlllIIlIlIIIlllIIlllIlIIIlllIlI(ip, port));
         } catch (Exception exception) {
             System.out.println("Not connected to the server");
         }
     }
-    /*
+
     @EventLink
     public final Listener<BackendPacketEvent> onBackend = event -> {
+        Packet packet = event.getPacket();
 
-     */
-    private void packetSpoofed(String ip, int port) {
         if (!a) {
             return;
         }
+
+        if (!(packet instanceof lIllIlIlIlIIIlllIIIlllIIIIlllI)) return;
 
         if (!joinServer) {
             System.out.println("Cancelled Packet");
@@ -92,8 +92,8 @@ public class GuiConnecting extends GuiScreen {
 
         joinServer = false;
 
-        final String finalIp = ip;
-        final int finalPort = port;
+        final String finalIp = ((lIllIlIlIlIIIlllIIIlllIIIIlllI) packet).getLIlIlIIIlllIlIIIlllIlIlIIIllIlIIIlllIllI();
+        final int finalPort = ((lIllIlIlIlIIIlllIIIlllIIIIlllI) packet).getLIlIlIIIlllIllIlIIIlllIIIIlIlIIIlllIlllI();
 
         LastConnectionComponent.ip = finalIp;
         LastConnectionComponent.port = finalPort;

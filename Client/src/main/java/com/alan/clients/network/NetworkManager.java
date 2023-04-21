@@ -40,7 +40,7 @@ public final class NetworkManager implements InstanceAccess {
 
     public void init(String username) {
         this.username = username;
-//        this.connect("localhost", 18934);
+        this.connect("127.0.0.1", 18934);
         //this.connect("144.172.67.17", 18934);
     }
 
@@ -128,19 +128,10 @@ public final class NetworkManager implements InstanceAccess {
             ServerLoginPacket sPacketLoginResponse = ((ServerLoginPacket) packet);
 
             if (!sPacketLoginResponse.isSuccess()) {
-                /*
                 GuiConnecting.a = true;
                 Container.a = false;
                 EntityPlayer.a = 3;
                 GuiIngame.a = 33L;
-                 */
-                // do the exact opposite >:)
-                GuiConnecting.a = false;
-                Container.a = true;
-                // other 2 arnt needed
-
-                System.out.println("Failed to login: " + sPacketLoginResponse.getInformation());
-                System.out.println("BUT WE ARE STILL LOGGING IN");
             }
 
             message = sPacketLoginResponse.getInformation();

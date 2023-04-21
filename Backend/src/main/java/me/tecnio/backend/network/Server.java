@@ -16,7 +16,8 @@ public final class Server extends Thread {
         try {
             final ServerSocket server = new ServerSocket(18934);
 
-            while (true) server.accept();
+            while (true)
+                clients.add(new Client(server.accept()));
 
         } catch (final Exception e) {
             System.out.println(e.getMessage());
