@@ -11,6 +11,7 @@ import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +35,7 @@ public class SkinUtil implements InstanceAccess {
 
     public static String uuidOf(String name) {
         String data = scrape(NAME_TO_UUID + name);
-        JsonObject jsonObject = JsonParser.parseString(data).getAsJsonObject();
+        JsonObject jsonObject = JsonParser.parseReader(new StringReader(data)).getAsJsonObject();
         if (jsonObject == null || !jsonObject.has("id")) return null;
         return jsonObject.get("id").getAsString();
     }
