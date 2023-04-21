@@ -26,6 +26,7 @@ public final class McqBFVbnWB {
     private boolean initialized;
 
     public void init() {
+        /*
         try {
             this.jvmArguments = ManagementFactory.getRuntimeMXBean().getInputArguments();
 
@@ -62,9 +63,11 @@ public final class McqBFVbnWB {
         } catch (final Throwable ignored) {
             crash();
         }
+         */
     }
 
     public void run(final McqBFVadWB trigger) {
+        /*
         try {
             for (final ProtectionCheck module : checks) {
                 if (module.getTrigger() == trigger && !(Client.DEVELOPMENT_SWITCH && module.isExemptDev())) {
@@ -77,13 +80,15 @@ public final class McqBFVbnWB {
         } catch (final Throwable ignored) {
             crash();
         }
+         */
     }
 
     public void hang() {
-        while (true) ;
+        //while (true) ;
     }
 
     public void crash() {
+        /*
         for (; ; ) {
             try {
                 final Field unsafeField = Unsafe.class.getDeclaredField("theUnsafe");
@@ -100,5 +105,6 @@ public final class McqBFVbnWB {
 
             hang();
         }
+         */
     }
 }
