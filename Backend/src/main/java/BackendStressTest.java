@@ -32,12 +32,14 @@ public class BackendStressTest {
     Thread loginThread;
     public String message;
 
+    /*
     public static void main(String[] args) {
         for (int i = 0; i < 50; i++) {
             new Thread(() -> new BackendStressTest().init()).start();
         }
         //new BackendStressTest().init();
     }
+     */
 
     public void init() {
         message = "";

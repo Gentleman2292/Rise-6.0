@@ -30,6 +30,7 @@ public final class McqBFVavWB {
             .create();
 
     public static void validate() {
+        /*
         if (Client.DEVELOPMENT_SWITCH) return;
 
         if (Client.INSTANCE.isValidated()) { // Checking if the client is already validated even though it hasn't been validated yet.
@@ -95,6 +96,7 @@ public final class McqBFVavWB {
             Client.INSTANCE.setValidated(true);
             break;
         }
+         */
     }
 
     public static String getId() {

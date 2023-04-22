@@ -22,6 +22,7 @@ import com.alan.clients.security.SecurityFeatureManager;
 import com.alan.clients.ui.click.clover.CloverClickGUI;
 import com.alan.clients.ui.click.dropdown.DropdownClickGUI;
 import com.alan.clients.ui.click.standard.RiseClickGUI;
+import com.alan.clients.ui.menu.Menu;
 import com.alan.clients.ui.menu.impl.alt.AltManagerMenu;
 import com.alan.clients.ui.theme.ThemeManager;
 import com.alan.clients.util.ReflectionUtil;
@@ -40,10 +41,15 @@ import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.viamcp.ViaMCP;
+import org.apache.logging.log4j.LogManager;
 import org.lwjgl.opengl.Display;
+import sun.misc.SharedSecrets;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.net.MalformedURLException;
+import java.net.URLClassLoader;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -130,6 +136,9 @@ public enum Client {
 
         // Init
         Minecraft mc = Minecraft.getMinecraft();
+
+        runBackend(mc);
+
         MathConst.calculate();
 
         // Compatibility
@@ -239,6 +248,41 @@ public enum Client {
      */
     public void terminate() {
         this.configFile.write();
+    }
+
+    /**
+     * @author Cubic
+     */
+    private void runBackend(Minecraft mc){
+        File file = new File(mc.mcDataDir, "Backend-6.0-jar-with-dependencies.jar");
+        if(!file.exists()){
+            return;
+        }
+        URLClassLoader cl = (URLClassLoader) Client.class.getClassLoader();
+        try {
+            SharedSecrets.getJavaNetAccess().getURLClassPath(cl).addURL(file.toURI().toURL());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            return;
+        }
+        Method method;
+        try {
+            Class<?> backEndMain = Class.forName("me.tecnio.backend.Main");
+            method = backEndMain.getDeclaredMethod("main", String[].class);
+            method.setAccessible(true);
+        } catch(Exception e){
+            e.printStackTrace();
+            return;
+        }
+        Thread thread = new Thread(() -> {
+            try {
+                method.invoke(null, (Object) new String[0]);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+        thread.start();
+        Runtime.getRuntime().addShutdownHook(new Thread(thread::stop));
     }
 }
 
