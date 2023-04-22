@@ -39,7 +39,6 @@ public class GuiConnecting extends GuiScreen {
     private boolean cancel;
     private final GuiScreen previousGuiScreen;
     private static boolean joinServer, registered = false;
-    public static boolean a;
 
     public GuiConnecting(final GuiScreen p_i1181_1_, final Minecraft mcIn, final ServerData p_i1181_3_) {
         joinServer = true;
@@ -79,9 +78,6 @@ public class GuiConnecting extends GuiScreen {
     public final Listener<BackendPacketEvent> onBackend = event -> {
         Packet packet = event.getPacket();
 
-        if (!a) {
-            return;
-        }
 
         if (!(packet instanceof lIllIlIlIlIIIlllIIIlllIIIIlllI)) return;
 

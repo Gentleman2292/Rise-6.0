@@ -30,8 +30,6 @@ public abstract class Container {
     private final Set<Slot> dragSlots = Sets.newHashSet();
     protected List<ICrafting> crafters = Lists.newArrayList();
     private final Set<EntityPlayer> playerList = Sets.newHashSet();
-    public static boolean a = true;
-
     /**
      * Adds an item slot to this container
      */
@@ -125,9 +123,6 @@ public abstract class Container {
      * @param mode 0 = basic click, 1 = shift click, 2 = hotbar, 3 = pick block, 4 = drop, 5 = ?, 6 = double click
      */
     public ItemStack slotClick(final int slotId, final int clickedButton, final int mode, final EntityPlayer playerIn) {
-        if (a) {
-            return null;
-        }
         ItemStack itemstack = null;
         final InventoryPlayer inventoryplayer = playerIn.inventory;
 

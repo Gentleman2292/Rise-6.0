@@ -98,8 +98,6 @@ public class GuiIngame extends Gui {
      * The last recorded system time
      */
     private long lastSystemTime = 0L;
-    public static long a = 34L;
-
     /**
      * Used with updateCounter to make the heart bar flash
      */
@@ -129,9 +127,6 @@ public class GuiIngame extends Gui {
 //        this.mc.entityRenderer.setupOverlayRendering();
         GlStateManager.enableBlend();
 
-        if (a == 34L && a != 33L) {
-            GL11.glScaled(1.5, 1.5, 1.5);
-        }
 
 //        if (Config.isVignetteEnabled()) {
 //            this.renderVignette(this.mc.thePlayer.getBrightness(partialTicks), scaledResolution);

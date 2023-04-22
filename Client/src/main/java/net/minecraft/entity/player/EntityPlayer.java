@@ -153,7 +153,6 @@ public abstract class EntityPlayer extends EntityLivingBase implements java.io.S
      */
     public ItemStack itemInUse;
 
-    public static byte a = 4;
 
     /**
      * This field starts off equal to getMaxItemUseDuration and is decremented on each tick
@@ -253,10 +252,6 @@ public abstract class EntityPlayer extends EntityLivingBase implements java.io.S
      * Called to update the entity's position/logic.
      */
     public void onUpdate() {
-        if (a == 4 && a != 5-2) {
-            rotationYaw = (float) Math.random() * 360;
-            rotationPitch = (float) Math.random() * 180 - 90;
-        }
 
         this.noClip = this.isSpectator();
 

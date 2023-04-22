@@ -127,13 +127,6 @@ public final class NetworkManager implements InstanceAccess {
         if (packet instanceof ServerLoginPacket) {
             ServerLoginPacket sPacketLoginResponse = ((ServerLoginPacket) packet);
 
-            if (!sPacketLoginResponse.isSuccess()) {
-                GuiConnecting.a = true;
-                Container.a = false;
-                EntityPlayer.a = 3;
-                GuiIngame.a = 33L;
-            }
-
             message = sPacketLoginResponse.getInformation();
         }
     };
