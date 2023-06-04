@@ -383,7 +383,7 @@ public abstract class Entity implements ICommandSender {
             }
 
             this.motionX = this.motionY = this.motionZ = 0.0D;
-           // this.rotationPitch = 0.0F;
+            this.rotationPitch = 0.0F;
         }
     }
 
