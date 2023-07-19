@@ -112,15 +112,9 @@ public class Scaffold extends Module {
 
     private final BooleanValue render = new BooleanValue("Render", this, true);
 
-    private final BooleanValue advanced = new BooleanValue("Advanced", this, false);
+    public final ModeValue yawOffset = new ModeValue("Yaw Offset", this, 0, -180, 180, 1);
 
-    public final ModeValue yawOffset = new ModeValue("Yaw Offset", this, () -> !advanced.getValue())
-            .add(new SubMode("0"))
-            .add(new SubMode("45"))
-            .add(new SubMode("-45"))
-            .setDefault("0");
-
-    public final BooleanValue ignoreSpeed = new BooleanValue("Ignore Speed Effect", this, false, () -> !advanced.getValue());
+    public final BooleanValue ignoreSpeed = new BooleanValue("Ignore Speed Effect", this, false);
     public final BooleanValue upSideDown = new BooleanValue("Up Side Down", this, false, () -> !advanced.getValue());
 
     private Vec3 targetBlock;
@@ -247,20 +241,20 @@ public class Scaffold extends Module {
     }
 
     public void calculateRotations() {
-        float yawOffset = Float.parseFloat(String.valueOf(this.yawOffset.getValue().getName()));
+        float yawOffset = Float.parseFloat(String.valueOf(this.yawOffset.getValue().integerValue()));
 
         /* Calculating target rotations */
         switch (mode.getValue().getName()) {
             case "Normal":
                 if (ticksOnAir > 0 && !RayCastUtil.overBlock(RotationComponent.rotations, enumFacing.getEnumFacing(), blockFace, rayCast.getValue().getName().equals("Strict"))) {
-                    getRotations(Float.parseFloat(String.valueOf(this.yawOffset.getValue().getName())));
+                    getRotations(Float.parseFloat(String.valueOf(this.yawOffset.getValue().integerValue())));
                 }
                 break;
 
             case "UPDATED-NCP":
 
                 if (ticksOnAir > 0 && !RayCastUtil.overBlock(RotationComponent.rotations, enumFacing.getEnumFacing(), blockFace, rayCast.getValue().getName().equals("Strict"))) {
-                    getRotations(Float.parseFloat(String.valueOf(this.yawOffset.getValue().getName())));
+                    getRotations(Float.parseFloat(String.valueOf(this.yawOffset.getValue().integerValue())));
                 }
 
                 targetPitch = 69;
@@ -280,7 +274,7 @@ public class Scaffold extends Module {
                         getRotations(yawOffset);
                     }
                 } else {
-                    getRotations(Float.parseFloat(String.valueOf(this.yawOffset.getValue().getName())));
+                    getRotations(Float.parseFloat(String.valueOf(this.yawOffset.getValue().integerValue())));
                     targetYaw = mc.thePlayer.rotationYaw - yawOffset;
                 }
                 break;
