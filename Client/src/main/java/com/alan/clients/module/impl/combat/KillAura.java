@@ -39,6 +39,9 @@ import com.alan.clients.util.vector.Vector2f;
 import com.alan.clients.value.impl.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.client.*;
@@ -55,7 +58,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Alan
@@ -190,7 +195,49 @@ public final class KillAura extends Module {
     };
 
     public void getTargets(double range) {
-        targets = Client.INSTANCE.getTargetManager().getTargets(range);
+        targets = mc.theWorld.loadedEntityList
+
+                .stream()
+
+                .filter(entity -> entity instanceof EntityLivingBase)
+
+                .map(entity -> (EntityLivingBase) entity)
+
+                .filter(entity -> {
+
+                    if (entity instanceof EntityPlayer && !player.getValue()) {
+                        return false;
+                    }
+
+                    if (entity instanceof EntityAnimal && !animals.getValue()) {
+                        return false;
+                    }
+
+                    if (entity instanceof EntityMob && !mobs.getValue()) {
+                        return false;
+                    }
+
+                    if (entity.isInvisible() && !invisibles.getValue()) {
+                        return false;
+                    }
+
+                    if (entity.deathTime != 0 || entity.isDead) {
+                        return false;
+                    }
+
+                    if (mc.thePlayer.getDistanceToEntity(entity) > range) {
+                        return false;
+                    }
+
+                    return entity != mc.thePlayer;
+
+                })
+
+                .sorted(Comparator.comparingDouble(entity -> mc.thePlayer.getDistanceToEntity(entity)))
+
+                .collect(Collectors.toList());
+
+        target = targets.isEmpty() ? null : targets.get(0);
     }
 
     @EventLink()
